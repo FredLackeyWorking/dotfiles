@@ -9,7 +9,7 @@ print_in_purple "\n   Image Tools\n\n"
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # brew_install "Adobe After Effects" "adobe-after-effects-cc" "caskroom/cask" "cask"
-brew_install "Adobe Creative Cloud" "adobe-creative-cloud" "caskroom/cask" "cask"
+# brew_install "Adobe Creative Cloud" "adobe-creative-cloud" "caskroom/cask" "cask"
 # brew_install "Adobe Illustrator" "adobe-illustrator-cc" "caskroom/cask" "cask"
 # brew_install "Adobe Photoshop" "adobe-photoshop-cc" "caskroom/cask" "cask"
 # brew_install "Adobe Premier Pro" "adobe-premiere-pro-cc" "caskroom/cask" "cask"
