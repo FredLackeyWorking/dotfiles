@@ -28,6 +28,7 @@ main() {
 
     printf "\n"
 
+    install_npm_package "Angular CLI" "@angular/cli"
     install_npm_package "Babel" "babel-cli"
     install_npm_package "Bower" "bower"
     install_npm_package "ESLint" "eslint"
@@ -37,6 +38,7 @@ main() {
     install_npm_package "Gulp CLI" "gulp-cli"
     install_npm_package "!nstant-markdown-d" "instant-markdown-d"
     install_npm_package "JSHint" "jshint"
+    install_npm_package "Live Server" "live-server"
     install_npm_package "Nodemon" "nodemon"
     install_npm_package "Node Inspector" "node-inspector"
     install_npm_package "NPM Check Updates" "npm-check-updates"
