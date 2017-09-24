@@ -34,6 +34,7 @@ main() {
     install_npm_package "ESLint" "eslint"
     install_npm_package "Express" "express"
     install_npm_package "Express Generator" "express-generator"
+    install_npm_package "Firebase Tools" "firebase-tools"
     install_npm_package "Gulp" "gulp"
     install_npm_package "Gulp CLI" "gulp-cli"
     install_npm_package "!nstant-markdown-d" "instant-markdown-d"
