@@ -41,8 +41,8 @@ install_latest_stable_node() {
 
     execute \
         ". $LOCAL_SHELL_CONFIG_FILE \
-            && nvm install 6.11.2" \
-        "nvm (install Node v6.11.2 LTS)"
+            && nvm install 6.11.3" \
+        "nvm (install Node v6.11.3 LTS)"
 }
 
 install_nvm() {
