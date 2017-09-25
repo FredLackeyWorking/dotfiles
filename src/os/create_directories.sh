@@ -17,6 +17,7 @@ create_directories() {
       "$HOME/Source/GitHub"
       "$HOME/Source/GitHub/FredLackey"
       "$HOME/Source/Local"
+      "$HOME/Source/Training"
       "$HOME/Temporary"
     )
 
