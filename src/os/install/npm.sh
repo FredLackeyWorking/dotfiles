@@ -44,6 +44,7 @@ main() {
     install_npm_package "Node Inspector" "node-inspector"
     install_npm_package "NPM Check Updates" "npm-check-updates"
     install_npm_package "RimRaf" "rimraf"
+    install_npm_package "TypeScript" "typescript"
   	install_npm_package "Yarn"  "yarn"
 }
 
