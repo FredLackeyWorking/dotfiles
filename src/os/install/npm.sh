@@ -31,6 +31,8 @@ main() {
     install_npm_package "Angular CLI" "@angular/cli"
     install_npm_package "Babel" "babel-cli"
     install_npm_package "Bower" "bower"
+    install_npm_package "DbSchema Parser" "dbschema-parser"
+    install_npm_package "DbSchema Parser (Mongoose)" "dbschema-mongoose"
     install_npm_package "ESLint" "eslint"
     install_npm_package "Express" "express"
     install_npm_package "Express Generator" "express-generator"
