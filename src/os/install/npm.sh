@@ -42,6 +42,7 @@ main() {
     install_npm_package "Gulp CLI" "gulp-cli"
     install_npm_package "!nstant-markdown-d" "instant-markdown-d"
     install_npm_package "JSHint" "jshint"
+    install_npm_package "JSLint" "jslint"
     install_npm_package "Live Server" "live-server"
     install_npm_package "Nodemon" "nodemon"
     install_npm_package "Node Inspector" "node-inspector"
