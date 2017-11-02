@@ -10,11 +10,11 @@ print_in_purple "\n   Productivity\n\n"
 
 if ! package_is_installed "nixnote2"; then
 
-    add_ppa "nixnote/nixnote2-daily" \
-        || print_error "NixNote2 (add PPA)"
-
-    update &> /dev/null \
-        || print_error "NixNote2 (resync package index files)" \
+    # add_ppa "nixnote/nixnote2-daily" \
+    #     || print_error "NixNote2 (add PPA)"
+    #
+    # update &> /dev/null \
+    #     || print_error "NixNote2 (resync package index files)" \
     # execute \
     #     "sudo add-apt-repository ppa:nixnote/nixnote2-daily \
     #         && sudo apt-get update" \
@@ -27,16 +27,16 @@ install_package "NixNote2" "nixnote2"
 
 if ! package_is_installed "sublime-text-installer"; then
 
-    add_ppa "webupd8team/sublime-text-3" \
-        || print_error "Sublime Text (add PPA)"
+    # add_ppa "webupd8team/sublime-text-3" \
+    #     || print_error "Sublime Text (add PPA)"
 
     # update &> /dev/null \
     #     || print_error "Sublime Text (resync package index files)" \
     #
-    execute \
-        "sudo apt-get update \
-            && sudo apt-get install -f" \
-        "Sublime Text (resync package index files)"
+    # execute \
+    #     "sudo apt-get update \
+    #         && sudo apt-get install -f" \
+    #     "Sublime Text (resync package index files)"
 
 fi
 

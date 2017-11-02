@@ -181,7 +181,7 @@ verify_os() {
     fi
 
     declare -r MINIMUM_MACOS_VERSION="10.10"
-    declare -r MINIMUM_UBUNTU_VERSION="14.04"
+    declare -r MINIMUM_UBUNTU_VERSION="17.10"
     declare -r MINIMUM_MINT_VERSION="18.00"
 
     local os_name=""

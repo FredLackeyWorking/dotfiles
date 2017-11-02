@@ -10,11 +10,11 @@ print_in_purple "\n   Development\n\n"
 
 if ! package_is_installed "atom"; then
 
-    add_ppa "webupd8team/atom" \
-        || print_error "Atom.IO (add PPA)"
-
-    update &> /dev/null \
-        || print_error "Atom.IO (resync package index files)" \
+    # add_ppa "webupd8team/atom" \
+    #     || print_error "Atom.IO (add PPA)"
+    #
+    # update &> /dev/null \
+    #     || print_error "Atom.IO (resync package index files)" \
 
 fi
 install_package "Atom.IO" "atom"
@@ -38,13 +38,13 @@ fi
 
 # https://docs.docker.com/engine/installation/linux/ubuntulinux/
 if ! package_is_installed "docker-engine"; then
-    execute \
-        "sudo apt-get install apt-transport-https ca-certificates \
-            && sudo echo \"deb https://apt.dockerproject.org/repo ubuntu-xenial main\" | sudo tee /etc/apt/sources.list.d/docker.list \
-            && sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D \
-            && sudo apt-get update \
-            && sudo apt-get install -f" \
-        "Docker (add repo)"
+    # execute \
+    #     "sudo apt-get install apt-transport-https ca-certificates \
+    #         && sudo echo \"deb https://apt.dockerproject.org/repo ubuntu-xenial main\" | sudo tee /etc/apt/sources.list.d/docker.list \
+    #         && sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D \
+    #         && sudo apt-get update \
+    #         && sudo apt-get install -f" \
+    #     "Docker (add repo)"
 fi
 install_package "Docker" "docker-engine"
 
@@ -67,16 +67,16 @@ fi
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 if ! cmd_exists "intellij"; then
-    execute \
-        "wget -q -O /tmp/intellij.tar.gz https://download.jetbrains.com/idea/ideaIU-2017.1.3.tar.gz \
-            && sudo mkdir /opt/intellij \
-            && sudo tar xf /tmp/intellij.tar.gz -C /opt/intellij --strip-components=1 \
-            && sudo ln -s /opt/intellij/bin/idea.sh /usr/sbin/intellij \
-            && sudo find /tmp -name \"intellij\" -type d -exec rm -rf '{}' +" \
-        "IntelliJ"
-    execute \
-        "sudo cp ./files/intellij.desktop /usr/share/applications/" \
-        "IntelliJ (desktop item)"
+    # execute \
+    #     "wget -q -O /tmp/intellij.tar.gz https://download.jetbrains.com/idea/ideaIU-2017.1.3.tar.gz \
+    #         && sudo mkdir /opt/intellij \
+    #         && sudo tar xf /tmp/intellij.tar.gz -C /opt/intellij --strip-components=1 \
+    #         && sudo ln -s /opt/intellij/bin/idea.sh /usr/sbin/intellij \
+    #         && sudo find /tmp -name \"intellij\" -type d -exec rm -rf '{}' +" \
+    #     "IntelliJ"
+    # execute \
+    #     "sudo cp ./files/intellij.desktop /usr/share/applications/" \
+    #     "IntelliJ (desktop item)"
 fi
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -93,9 +93,9 @@ if ! package_is_installed "javac"; then
     execute \
         "echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections" \
         "Oracle Java 8 (set defaults)"
-    execute \
-        "sudo apt-get update" \
-        "Oracle Java 8 (sync pakages)"
+    # execute \
+    #     "sudo apt-get update" \
+    #     "Oracle Java 8 (sync pakages)"
     install_package "Oracle Java 8" "oracle-java8-installer"
     execute \
         "sudo update-java-alternatives -s java-8-oracle" \
