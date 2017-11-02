@@ -35,17 +35,17 @@ install_package "Remmina VNC Plugin" "remmina-plugin-vnc"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-if ! package_is_installed "teamviewer"; then
+# if ! package_is_installed "teamviewer"; then
 
-    execute \
-        "sudo apt-get install -y libgcc1:i386 libasound2:i386 libdbus-1-3:i386 libexpat1:i386 libfontconfig1:i386 libfreetype6:i386 libsm6:i386 libxdamage1:i386 libxext6:i386 libxfixes3:i386 libxrender1:i386 zlib1g:i386 libjpeg62:i386 libxinerama1:i386 libxrandr2:i386 libxtst6:i386 \
-            && sudo apt-get install -f" \
-        "TeamViewer (dependencies)"
+#     execute \
+#         "sudo apt-get install -y libgcc1:i386 libasound2:i386 libdbus-1-3:i386 libexpat1:i386 libfontconfig1:i386 libfreetype6:i386 libsm6:i386 libxdamage1:i386 libxext6:i386 libxfixes3:i386 libxrender1:i386 zlib1g:i386 libjpeg62:i386 libxinerama1:i386 libxrandr2:i386 libxtst6:i386 \
+#             && sudo apt-get install -f" \
+#         "TeamViewer (dependencies)"
 
-    execute \
-      "wget -q -O /tmp/teamviewer.deb https://download.teamviewer.com/download/teamviewer_i386.deb \
-          && sudo dpkg -i /tmp/teamviewer.deb \
-          && sudo apt-get install -f \
-          && rm /tmp/teamviewer.deb" \
-      "TeamViewer"
-fi
+#     execute \
+#       "wget -q -O /tmp/teamviewer.deb https://download.teamviewer.com/download/teamviewer_i386.deb \
+#           && sudo dpkg -i /tmp/teamviewer.deb \
+#           && sudo apt-get install -f \
+#           && rm /tmp/teamviewer.deb" \
+#       "TeamViewer"
+# fi

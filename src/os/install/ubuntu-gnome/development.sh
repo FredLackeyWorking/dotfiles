@@ -8,7 +8,7 @@ print_in_purple "\n   Development\n\n"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-if ! package_is_installed "atom"; then
+# if ! package_is_installed "atom"; then
 
     # add_ppa "webupd8team/atom" \
     #     || print_error "Atom.IO (add PPA)"
@@ -16,7 +16,7 @@ if ! package_is_installed "atom"; then
     # update &> /dev/null \
     #     || print_error "Atom.IO (resync package index files)" \
 
-fi
+# fi
 install_package "Atom.IO" "atom"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -37,7 +37,7 @@ fi
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # https://docs.docker.com/engine/installation/linux/ubuntulinux/
-if ! package_is_installed "docker-engine"; then
+# if ! package_is_installed "docker-engine"; then
     # execute \
     #     "sudo apt-get install apt-transport-https ca-certificates \
     #         && sudo echo \"deb https://apt.dockerproject.org/repo ubuntu-xenial main\" | sudo tee /etc/apt/sources.list.d/docker.list \
@@ -45,7 +45,7 @@ if ! package_is_installed "docker-engine"; then
     #         && sudo apt-get update \
     #         && sudo apt-get install -f" \
     #     "Docker (add repo)"
-fi
+# fi
 install_package "Docker" "docker-engine"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -66,7 +66,7 @@ fi
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-if ! cmd_exists "intellij"; then
+# if ! cmd_exists "intellij"; then
     # execute \
     #     "wget -q -O /tmp/intellij.tar.gz https://download.jetbrains.com/idea/ideaIU-2017.1.3.tar.gz \
     #         && sudo mkdir /opt/intellij \
@@ -77,7 +77,7 @@ if ! cmd_exists "intellij"; then
     # execute \
     #     "sudo cp ./files/intellij.desktop /usr/share/applications/" \
     #     "IntelliJ (desktop item)"
-fi
+# fi
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -133,12 +133,19 @@ fi
 
 if ! package_is_installed "code"; then
 
+    # execute \
+    #   "wget -q -O /tmp/vscode.deb https://go.microsoft.com/fwlink/?LinkID=760868 \
+    #       && sudo dpkg -i /tmp/vscode.deb \
+    #       && sudo apt-get install -f \
+    #       && rm /tmp/vscode.deb" \
+    #   "Visual Studio Code"
+
     execute \
-      "wget -q -O /tmp/vscode.deb https://go.microsoft.com/fwlink/?LinkID=760868 \
-          && sudo dpkg -i /tmp/vscode.deb \
-          && sudo apt-get install -f \
-          && rm /tmp/vscode.deb" \
-      "Visual Studio Code"
+        "curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg \
+            && sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg \
+            && sudo sh -c 'echo \"deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main\" > /etc/apt/sources.list.d/vscode.list' \
+            && sudo apt-get update \
+            && sudo apt-get install code"
 fi
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
