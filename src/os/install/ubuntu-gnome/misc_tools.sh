@@ -16,7 +16,7 @@ install_package "JQ" "jq"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-if ! package_is_installed "powermate"; then
+# if ! package_is_installed "powermate"; then
 
     # add_ppa "stefansundin/powermate" \
     #     || print_error "Powermate (add PPA)"
@@ -35,7 +35,7 @@ if ! package_is_installed "powermate"; then
     #       && sudo apt-get install -f" \
     #   "Powermate"
 
-fi
+# fi
 # install_package "Powermate" "powermate"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

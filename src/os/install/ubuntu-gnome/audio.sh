@@ -17,4 +17,4 @@ print_in_purple "\n   Audio\n\n"
 #         "Spotify (add repo)"
 # fi
 #
-# install_package "Spotify" "spotify-client"
+install_package "Spotify" "spotify-client"

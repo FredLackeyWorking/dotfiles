@@ -8,15 +8,15 @@ print_in_purple "\n   Development\n\n"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-# if ! package_is_installed "atom"; then
+if ! package_is_installed "atom"; then
 
-    # add_ppa "webupd8team/atom" \
-    #     || print_error "Atom.IO (add PPA)"
-    #
-    # update &> /dev/null \
-    #     || print_error "Atom.IO (resync package index files)" \
+    add_ppa "webupd8team/atom" \
+        || print_error "Atom.IO (add PPA)"
+    
+    update &> /dev/null \
+        || print_error "Atom.IO (resync package index files)" \
 
-# fi
+fi
 install_package "Atom.IO" "atom"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -37,15 +37,15 @@ fi
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # https://docs.docker.com/engine/installation/linux/ubuntulinux/
-# if ! package_is_installed "docker-engine"; then
-    # execute \
-    #     "sudo apt-get install apt-transport-https ca-certificates \
-    #         && sudo echo \"deb https://apt.dockerproject.org/repo ubuntu-xenial main\" | sudo tee /etc/apt/sources.list.d/docker.list \
-    #         && sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D \
-    #         && sudo apt-get update \
-    #         && sudo apt-get install -f" \
-    #     "Docker (add repo)"
-# fi
+if ! package_is_installed "docker-engine"; then
+    execute \
+        "sudo apt-get install apt-transport-https ca-certificates \
+            && sudo echo \"deb https://apt.dockerproject.org/repo ubuntu-xenial main\" | sudo tee /etc/apt/sources.list.d/docker.list \
+            && sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D \
+            && sudo apt-get update \
+            && sudo apt-get install -f" \
+        "Docker (add repo)"
+fi
 install_package "Docker" "docker-engine"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -145,7 +145,8 @@ if ! package_is_installed "code"; then
             && sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg \
             && sudo sh -c 'echo \"deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main\" > /etc/apt/sources.list.d/vscode.list' \
             && sudo apt-get update \
-            && sudo apt-get install code"
+            && sudo apt-get install code" \
+        "Visual Studio Code"
 fi
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
