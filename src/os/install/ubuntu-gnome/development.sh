@@ -38,23 +38,33 @@ fi
 
 # https://docs.docker.com/engine/installation/linux/ubuntulinux/
 if ! package_is_installed "docker-engine"; then
+
     execute \
-        "sudo apt-get install apt-transport-https ca-certificates \
-            && sudo echo \"deb https://apt.dockerproject.org/repo ubuntu-xenial main\" | sudo tee /etc/apt/sources.list.d/docker.list \
-            && sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D \
+        "sudo apt-get install -y linux-image-extra-$(uname -r) linux-image-extra-virtual \
             && sudo apt-get update \
-            && sudo apt-get install -f" \
-        "Docker (add repo)"
+            && sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common \
+            && curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - \
+            && sudo apt-key fingerprint 0EBFCD88 \
+            && sudo add-apt-repository \"deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable\"
+            && sudo apt-get update" \
+        "Docker CE (add repo)"
+    # execute \
+    #     "sudo apt-get install apt-transport-https ca-certificates \
+    #         && sudo echo \"deb https://apt.dockerproject.org/repo ubuntu-xenial main\" | sudo tee /etc/apt/sources.list.d/docker.list \
+    #         && sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D \
+    #         && sudo apt-get update \
+    #         && sudo apt-get install -f" \
+    #     "Docker (add repo)"
 fi
-install_package "Docker" "docker-engine"
+install_package "Docker CE" "docker-ce"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-if package_is_installed "docker-engine"; then
+if package_is_installed "docker-ce"; then
     execute \
         "sudo usermod -a -G docker $USER \
             && sudo systemctl enable docker" \
-        "Docker (settings)"
+        "Docker CE (settings)"
 fi
 
 if ! package_is_installed "docker-compose"; then
@@ -82,26 +92,26 @@ fi
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 # http://www.dbschema.com/download/DbSchema_linux_7_5_1.deb
-if ! package_is_installed "javac"; then
-    add_ppa "webupd8team/java" \
-        || print_error "Oracle Java 8 (add PPA)"
-    # "echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections \
-    #     && sudo apt-get install oracle-java8-installer oracle-java8-set-default \
-    #     && sudo update-java-alternatives -s java-8-oracle \
-    #     && sudo rm -f /usr/lib/jvm/default-java \
-    #     && sudo ln -s /usr/lib/jvm/java-8-oracle/ /usr/lib/jvm/default-java" \
-    execute \
-        "echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections" \
-        "Oracle Java 8 (set defaults)"
-    # execute \
-    #     "sudo apt-get update" \
-    #     "Oracle Java 8 (sync pakages)"
-    install_package "Oracle Java 8" "oracle-java8-installer"
-    execute \
-        "sudo update-java-alternatives -s java-8-oracle" \
-        "Oracle Java 8 (add to alternates)"
-    install_package "Oracle Java 8 (set default)" "oracle-java8-set-default"
-fi
+# if ! package_is_installed "javac"; then
+#     add_ppa "webupd8team/java" \
+#         || print_error "Oracle Java 8 (add PPA)"
+#     # "echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections \
+#     #     && sudo apt-get install oracle-java8-installer oracle-java8-set-default \
+#     #     && sudo update-java-alternatives -s java-8-oracle \
+#     #     && sudo rm -f /usr/lib/jvm/default-java \
+#     #     && sudo ln -s /usr/lib/jvm/java-8-oracle/ /usr/lib/jvm/default-java" \
+#     execute \
+#         "echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | sudo /usr/bin/debconf-set-selections" \
+#         "Oracle Java 8 (set defaults)"
+#     # execute \
+#     #     "sudo apt-get update" \
+#     #     "Oracle Java 8 (sync pakages)"
+#     install_package "Oracle Java 8" "oracle-java8-installer"
+#     execute \
+#         "sudo update-java-alternatives -s java-8-oracle" \
+#         "Oracle Java 8 (add to alternates)"
+#     install_package "Oracle Java 8 (set default)" "oracle-java8-set-default"
+# fi
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

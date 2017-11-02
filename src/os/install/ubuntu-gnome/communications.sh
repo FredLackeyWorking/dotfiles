@@ -19,7 +19,7 @@ print_in_purple "\n   Communications\n\n"
     #     "Dropbox (add repo)"
 # fi
 # install_package "Dropbox" "dropbox"
-install_package "Dropbox (Nautilus Integration)" "nautilus-dropbox"
+# install_package "Dropbox (Nautilus Integration)" "nautilus-dropbox"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -40,17 +40,17 @@ install_package "Filezilla" "filezilla"
     #         && sudo apt-get update \
     #         && sudo apt-get install -f" \
         # "Skype (add repo)"
-    execute \
-        "sudo apt-get purge skypeforlinux \
-            && sudo apt-get autoremove \
-            && sudo apt-get install -y apt-transport-https curl
-            && curl https://repo.skype.com/data/SKYPE-GPG-KEY | sudo apt-key add - \
-            && echo \"deb [arch=amd64] https://repo.skype.com/deb stable main\" | sudo tee /etc/apt/sources.list.d/skype-stable.list \
-            && sudo apt-get update" \
-        "Skype (add repo)"
+    # execute \
+    #     "sudo apt-get purge skypeforlinux \
+    #         && sudo apt-get autoremove \
+    #         && sudo apt-get install -y apt-transport-https curl
+    #         && curl https://repo.skype.com/data/SKYPE-GPG-KEY | sudo apt-key add - \
+    #         && echo \"deb [arch=amd64] https://repo.skype.com/deb stable main\" | sudo tee /etc/apt/sources.list.d/skype-stable.list \
+    #         && sudo apt-get update" \
+    #     "Skype (add repo)"
 # fi
 
-install_package "Skype" "skypeforlinux"
+# install_package "Skype" "skypeforlinux"
 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
